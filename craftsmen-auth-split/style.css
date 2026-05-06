@@ -1,0 +1,81 @@
+:root{
+  --navy:#1A3263;
+  --orange:#E76F2E;
+  --section:#EBEBEB;
+  --text:#333;
+  --muted:#6b7280;
+  --white:#fff;
+  --radius:14px;
+  --shadow:0 20px 50px rgba(26,50,99,.12);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--text);background:var(--section)}
+a{text-decoration:none;color:var(--navy)}
+img{max-width:100%;display:block}
+
+/* Navbar */
+.nav{background:var(--navy);color:#fff;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:50}
+.nav .brand{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:20px;color:#fff;display:flex;align-items:center;gap:8px}
+.nav .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--orange)}
+.nav .back{color:#fff;font-size:14px;opacity:.85;transition:.2s}
+.nav .back:hover{opacity:1;color:var(--orange)}
+
+/* Layout */
+.auth-wrap{min-height:calc(100vh - 64px);display:flex;align-items:center;justify-content:center;padding:40px 16px}
+.auth-card{background:#fff;width:100%;max-width:480px;border-radius:var(--radius);box-shadow:var(--shadow);padding:36px 32px;animation:rise .5s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+.auth-head{text-align:center;margin-bottom:22px}
+.auth-head .badge{display:inline-block;padding:6px 12px;border-radius:999px;background:rgba(231,111,46,.12);color:var(--orange);font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
+.auth-head h1{font-family:'Plus Jakarta Sans',sans-serif;color:var(--navy);font-size:26px;margin:12px 0 6px}
+.auth-head p{color:var(--muted);margin:0;font-size:14px}
+
+/* Tabs */
+.tabs{display:flex;background:var(--section);border-radius:10px;padding:4px;margin-bottom:22px}
+.tab{flex:1;text-align:center;padding:10px 12px;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer;border-radius:8px;transition:.25s;border:none;background:transparent}
+.tab.active{background:#fff;color:var(--navy);box-shadow:0 2px 8px rgba(0,0,0,.06)}
+
+/* Forms */
+.form{display:none;flex-direction:column;gap:14px}
+.form.active{display:flex}
+.field label{display:block;font-size:13px;font-weight:600;color:var(--navy);margin-bottom:6px}
+.field input, .field select{
+  width:100%;padding:12px 14px;border:1px solid #d9dde3;border-radius:10px;
+  font-size:14px;color:var(--text);background:#fff;transition:.2s;font-family:inherit
+}
+.field input:focus, .field select:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 4px rgba(231,111,46,.12)}
+.error-msg{color:#d33b3b;font-size:12px;margin-top:6px;min-height:14px}
+
+.btn{
+  background:var(--orange);color:#fff;border:none;padding:12px 18px;border-radius:10px;
+  font-weight:700;font-size:15px;cursor:pointer;transition:.25s;font-family:inherit
+}
+.btn:hover{background:#d4621f;transform:translateY(-1px);box-shadow:0 8px 20px rgba(231,111,46,.3)}
+.btn:active{transform:translateY(0)}
+
+.swap-link{text-align:center;font-size:14px;color:var(--muted);margin-top:18px}
+.swap-link a{color:var(--orange);font-weight:600}
+.swap-link a:hover{text-decoration:underline}
+
+.divider{height:1px;background:#e5e7eb;margin:18px 0}
+.alt-role{text-align:center;font-size:13px;color:var(--muted)}
+.alt-role a{color:var(--navy);font-weight:700}
+.alt-role a:hover{color:var(--orange)}
+
+/* Hero side image (desktop) */
+.split{display:grid;grid-template-columns:1fr;gap:0}
+@media(min-width:992px){
+  .auth-card.split{max-width:900px;grid-template-columns:1fr 1fr;padding:0;overflow:hidden}
+  .split-side{background:var(--navy);color:#fff;padding:40px;display:flex;flex-direction:column;justify-content:center;gap:16px;background-size:cover;background-position:center;position:relative}
+  .split-side::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,50,99,.92),rgba(26,50,99,.7))}
+  .split-side > *{position:relative;z-index:2}
+  .split-side h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:26px;margin:0}
+  .split-side p{opacity:.85;font-size:14px;line-height:1.6}
+  .split-side .pill{display:inline-block;background:var(--orange);padding:6px 12px;border-radius:999px;font-size:12px;font-weight:600;width:fit-content}
+  .split-form{padding:40px 36px}
+}
+
+@media(max-width:480px){
+  .auth-card{padding:28px 22px}
+  .auth-head h1{font-size:22px}
+}
