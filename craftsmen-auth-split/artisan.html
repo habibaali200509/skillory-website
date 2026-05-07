@@ -83,6 +83,18 @@
         <div class="field">
           <label>Password</label>
           <input type="password" name="password" placeholder="At least 8 characters" />
+          <div class="strength">
+  <div id="artisan-strength-bar"></div>
+</div>
+<small id="artisan-strength-text"></small>
+
+<ul class="rules">
+  <li id="a-length">• At least 8 characters</li>
+  <li id="a-upper">• Uppercase letter</li>
+  <li id="a-lower">• Lowercase letter</li>
+  <li id="a-number">• Number</li>
+  <li id="a-special">• Special character</li>
+</ul>
           <div class="error-msg" id="ar-err-pwd"></div>
         </div>
         <div class="field">
