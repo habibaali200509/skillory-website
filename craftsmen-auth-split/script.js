@@ -77,3 +77,53 @@ document.getElementById("client-register").addEventListener("submit", function(e
 function goDashboard(){
   window.location.href = "../artisan-dashboard.html";
 }
+function setupPassword(inputId, barId, textId, prefix){
+  const input = document.getElementById(inputId);
+  if(!input) return;
+
+  const bar = document.getElementById(barId);
+  const text = document.getElementById(textId);
+
+  const lengthRule = document.getElementById(prefix+"-length");
+  const upperRule = document.getElementById(prefix+"-upper");
+  const lowerRule = document.getElementById(prefix+"-lower");
+  const numberRule = document.getElementById(prefix+"-number");
+  const specialRule = document.getElementById(prefix+"-special");
+
+  input.addEventListener("input", () => {
+    let val = input.value;
+    let strength = 0;
+
+    if(val.length >= 8){ lengthRule.classList.add("valid"); strength++; }
+    else lengthRule.classList.remove("valid");
+
+    if(/[A-Z]/.test(val)){ upperRule.classList.add("valid"); strength++; }
+    else upperRule.classList.remove("valid");
+
+    if(/[a-z]/.test(val)){ lowerRule.classList.add("valid"); strength++; }
+    else lowerRule.classList.remove("valid");
+
+    if(/[0-9]/.test(val)){ numberRule.classList.add("valid"); strength++; }
+    else numberRule.classList.remove("valid");
+
+    if(/[^A-Za-z0-9]/.test(val)){ specialRule.classList.add("valid"); strength++; }
+    else specialRule.classList.remove("valid");
+
+   bar.classList.remove("weak","medium","strong");
+
+    if(strength <= 2){
+      bar.classList.add("weak");
+      text.innerText = "Weak";
+    } else if(strength <= 4){
+      bar.classList.add("medium");
+      text.innerText = "Medium";
+    } else {
+      bar.classList.add("strong");
+      text.innerText = "Strong";
+    }
+  });
+}
+
+// apply on both
+setupPassword("clientPassword","client-strength-bar","client-strength-text","c");
+setupPassword("artisanPassword","artisan-strength-bar","artisan-strength-text","a");
