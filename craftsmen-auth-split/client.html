@@ -65,7 +65,22 @@
         </div>
         <div class="field">
           <label>Password</label>
-          <input type="password" name="password" placeholder="At least 8 characters" />
+        <input type="password" id="clientPassword" name="password" placeholder="At least 8 characters" />
+
+<!-- strength -->
+<div class="strength">
+  <div id="client-strength-bar"></div>
+</div>
+<small id="client-strength-text"></small>
+
+<!-- rules -->
+<ul class="rules">
+  <li id="c-length">• At least 8 characters</li>
+  <li id="c-upper">• Uppercase letter</li>
+  <li id="c-lower">• Lowercase letter</li>
+  <li id="c-number">• Number</li>
+  <li id="c-special">• Special character</li>
+</ul>
           <div class="error-msg" id="cr-err-pwd"></div>
         </div>
         <div class="field">
