@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Craftsmen — Client Access</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="dark-mode.css">
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html" class="brand"><span class="dot"></span> Skillory</a>
+  <a href="index.html" class="back">← Back to home</a>
+
+<div style="display:flex;gap:10px;align-items:center;margin-left:auto">
+  <button id="themeToggle" style="padding:8px 12px;border:none;border-radius:8px;cursor:pointer;">
+    🌙 Dark
+  </button>
+
+  <div id="google_translate_element" style="display:none"></div>
+
+  <button data-lang-toggle style="padding:8px 12px;border:none;border-radius:8px;cursor:pointer;">
+    🌐 <span data-lang-label>AR</span>
+  </button>
+</div>
+</nav>
+
+<main class="auth-wrap">
+  <section class="auth-card split">
+    <aside class="split-side" style="background-image:url('images/client-hero.svg')">
+      <span class="pill">For Clients</span>
+      <h2>Find skilled artisans in minutes</h2>
+      <p>Post your project, browse trusted professionals, and hire the right craftsman for the job — all in one place.</p>
+    </aside>
+
+    <div class="split-form">
+      <div class="auth-head">
+        <span class="badge">Client Portal</span>
+        <h1>Welcome back</h1>
+        <p>Sign in or create your client account</p>
+      </div>
+
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-target="client-login">Sign in</button>
+        <button class="tab" data-target="client-register">Create account</button>
+      </div>
+
+      <!-- LOGIN -->
+      <form id="client-login" class="form login-form active" novalidate
+            data-err-email="cl-err-email" data-err-pwd="cl-err-pwd">
+        <div class="field">
+          <label>Email address</label>
+          <input type="email" name="email" placeholder="you@example.com" />
+          <div class="error-msg" id="cl-err-email"></div>
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="password" name="password" placeholder="Enter your password" />
+          <div class="error-msg" id="cl-err-pwd"></div>
+        </div>
+       <button type="submit" class="btn" >Sign in</button>
+      </form>
+
+      <!-- REGISTER -->
+      <form id="client-register" class="form register-form" novalidate
+            data-err-name="cr-err-name" data-err-email="cr-err-email"
+            data-err-pwd="cr-err-pwd" data-err-confirm="cr-err-confirm">
+        <div class="field">
+          <label>Full name</label>
+          <input type="text" name="fullname" placeholder="Jane Doe" />
+          <div class="error-msg" id="cr-err-name"></div>
+        </div>
+        <div class="field">
+          <label>Email address</label>
+          <input type="email" name="email" placeholder="you@example.com" />
+          <div class="error-msg" id="cr-err-email"></div>
+        </div>
+        <div class="field">
+          <label>Password</label>
+         <input type="password" id="clientPassword" name="password" placeholder="At least 8 characters" />
+
+<!-- strength -->
+<div class="strength">
+  <div id="client-strength-bar"></div>
+</div>
+<small id="client-strength-text"></small>
+
+<!-- rules -->
+<ul class="rules">
+  <li id="c-length">• At least 8 characters</li>
+  <li id="c-upper">• Uppercase letter</li>
+  <li id="c-lower">• Lowercase letter</li>
+  <li id="c-number">• Number</li>
+  <li id="c-special">• Special character</li>
+</ul>
+          <div class="error-msg" id="cr-err-pwd"></div>
+        </div>
+        <div class="field">
+          <label>Confirm password</label>
+          <input type="password" name="confirm" placeholder="Repeat your password" />
+          <div class="error-msg" id="cr-err-confirm"></div>
+        </div>
+       <button type="submit" class="btn" >Create client account</button>
+      </form>
+
+      <div class="divider"></div>
+      <p class="alt-role">Not a client? <a href="artisan.html">Register as Artisan →</a></p>
+    </div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+<script src="theme.js"></script>
+
+<script src="translate.js"></script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>
